@@ -5,11 +5,11 @@
     <!--define folder properties-->
     <property name="dir.buildfile" value="."/>
     <property name="dir.workspace" value="${dir.buildfile}/.."/>
-    <property name="dir.jarfile" value="C:/dev/export"/>
+    <property name="dir.jarfile" value="C:/dev/export/uc4-clone-execute"/>
     <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/uc4-tto.jar">
+        <jar destfile="${dir.jarfile}/uc4-clone-execute.jar">
             <manifest>
-                <attribute name="Main-Class" value="uc4.TaskTakeOver"/>
+                <attribute name="Main-Class" value="uc4.CloneExecute"/>
                 <attribute name="Class-Path" value=". lib/uc4.jar"/>
             </manifest>
             <fileset dir="${dir.buildfile}/bin"/>

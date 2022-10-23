@@ -86,6 +86,7 @@ public class CloneExecute {
 	public void close() throws IOException {
 		try {
 			sourceCon.close();
+			destCon.close();
 		} catch (IOException e) {
 			throw e;
 		}
@@ -95,8 +96,7 @@ public class CloneExecute {
 		/*
 		 * Set up filter for tasks that are:
 		 * 		- active
-		 * 		- type of EVENT
-		 * 		- type of SCHEDULE
+		 * 		- type of C_PERIOD
 		 */
 		TaskFilter taskFilter = new TaskFilter();
 		taskFilter.unselectAllObjects();
@@ -111,7 +111,7 @@ public class CloneExecute {
 			throw e;
 		}
 		
-		System.out.println("Found tasks for cloning -");	
+		System.out.println(String.format("Found tasks for cloning (%s) -", activityList.size()));	
 		activityList.forEach(e -> {
 			System.out.println(e.getObjectName());
 			GetExecutePeriod period = new GetExecutePeriod(e.getRunID());
